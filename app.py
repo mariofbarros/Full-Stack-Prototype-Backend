@@ -1,21 +1,14 @@
 from flask import Flask, request, jsonify, send_from_directory
-from flask_sqlalchemy import SQLAlchemy
 from flasgger import Swagger
 from datetime import datetime
 import os
 import yaml
+from database import db, init_database, Order, BASE_DIR
 
 # Initialize Flask app
 app = Flask(__name__)
 
-# Configure SQLite database
-BASE_DIR = os.path.abspath(os.path.dirname(__file__))
-app.config['SQLALCHEMY_DATABASE_URI'] = f'sqlite:///{os.path.join(BASE_DIR, "orders.db")}'
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-app.config['JSON_SORT_KEYS'] = False
-
-# Initialize extensions
-db = SQLAlchemy(app)
+init_database(app)
 
 # Load Swagger spec from YAML file
 with open(os.path.join(BASE_DIR, 'swagger.yaml'), 'r') as f:
@@ -23,21 +16,6 @@ with open(os.path.join(BASE_DIR, 'swagger.yaml'), 'r') as f:
 
 # Initialize Flasgger
 swagger = Swagger(app, template=swagger_config, template_file=None)
-
-# ==================== MODEL ====================
-class Order(db.Model):
-    __tablename__ = 'order'
-    
-    id = db.Column(db.Integer, primary_key=True)
-    content = db.Column(db.String(100), nullable=False)
-    created = db.Column(db.DateTime, default=datetime.utcnow)
-    
-    def to_dict(self):
-        return {
-            'id': self.id,
-            'content': self.content,
-            'created': self.created.isoformat() if self.created else None
-        }
 
 # ==================== ERROR HANDLERS ====================
 @app.errorhandler(404)
@@ -127,13 +105,6 @@ def delete_order(id):
     
     return '', 204
 
-# ==================== INITIALIZATION ====================
-def init_db():
-    with app.app_context():
-        db.create_all()
-        print("Database initialized successfully!")
-
 # ==================== MAIN ====================
 if __name__ == '__main__':
-    init_db()
     app.run(debug=True, port=5000)
