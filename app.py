@@ -1,21 +1,16 @@
-from flask import Flask, request, jsonify, send_from_directory
-from flasgger import Swagger
-from datetime import datetime
-import os
-import yaml
+# app.py
+from flask import Flask, request, jsonify
 from database import db, init_database, Order, BASE_DIR
+from swagger import init_swagger
 
 # Initialize Flask app
 app = Flask(__name__)
 
+# Initialize database
 init_database(app)
 
-# Load Swagger spec from YAML file
-with open(os.path.join(BASE_DIR, 'swagger.yaml'), 'r') as f:
-    swagger_config = yaml.safe_load(f)
-
-# Initialize Flasgger
-swagger = Swagger(app, template=swagger_config, template_file=None)
+# Initialize Swagger documentation
+init_swagger(app, 'swagger.yaml')
 
 # ==================== ERROR HANDLERS ====================
 @app.errorhandler(404)
