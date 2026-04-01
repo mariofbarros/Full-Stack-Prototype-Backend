@@ -1,10 +1,14 @@
 # app.py
 from flask import Flask, request, jsonify
+from flask_cors import CORS
 from database import db, init_database, Order, BASE_DIR
 from swagger import init_swagger
 
 # Initialize Flask app
 app = Flask(__name__)
+
+# Enable CORS
+CORS(app)
 
 # Initialize database
 init_database(app)
