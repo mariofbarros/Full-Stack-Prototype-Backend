@@ -1,4 +1,4 @@
-# Coffee Shop Order API (Backend)
+# Coffee Shop Order API
 
 A RESTful API built with **Flask** and **SQLAlchemy** to manage coffee shop orders. It supports CRUD operations for orders, includes input validation, and provides interactive API documentation via **Swagger/OpenAPI**.
 
