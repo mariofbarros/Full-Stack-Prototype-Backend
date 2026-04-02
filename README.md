@@ -2,7 +2,7 @@
 
 A RESTful API built with **Flask** and **SQLAlchemy** to manage coffee shop orders. It supports CRUD operations for orders, includes input validation, and provides interactive API documentation via **Swagger/OpenAPI**.
 
-## 🚀 Features
+## Features
 
 - **CRUD Operations**: Create, Read, Update, and Delete orders.
 - **Validation**: Enforces content length limits (max 100 chars) and non-empty fields.
@@ -10,7 +10,7 @@ A RESTful API built with **Flask** and **SQLAlchemy** to manage coffee shop orde
 - **Documentation**: Auto-generated Swagger UI via `flasgger`.
 - **Error Handling**: Custom JSON error responses for 400, 404, and 500 errors.
 
-## 🛠 Tech Stack
+## Tech Stack
 
 - **Language**: Python 3.x
 - **Framework**: Flask 3.0.0
