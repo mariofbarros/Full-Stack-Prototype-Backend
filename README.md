@@ -80,7 +80,7 @@ venv\Scripts\activate
 ```
 - If you are on a Linux machine use the following command
 ```
-source .venv/bin/activate
+source venv/bin/activate
 ```
 
 (You should see (venv) appear at the start of your command prompt)
