@@ -74,8 +74,13 @@ python -m venv venv
 
 4. Activate the virtual environment:
 
+- If you are on a Windows machine use the following command
 ```
 venv\Scripts\activate
+```
+- If you are on a Linux machine use the following command
+```
+source .venv/bin/activate
 ```
 
 (You should see (venv) appear at the start of your command prompt)
