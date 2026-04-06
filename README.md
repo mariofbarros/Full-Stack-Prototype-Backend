@@ -29,7 +29,7 @@ A RESTful API built with **Flask** and **SQLAlchemy** to manage coffee shop orde
 
 ## Setup Guide
 
-Open your terminal (Command Prompt, PowerShell, or Git Bash) and navigate to your desired directory:
+1. Open your terminal (Command Prompt, PowerShell, or Git Bash) and navigate to your desired directory:
 
 ```
 #Create a project folder
@@ -56,19 +56,19 @@ Full-Stack-Prototype/
     ├── script.js
     └── styles.css
 ```
-Navigate to the backend folder:
+2. Navigate to the backend folder:
 
 ```
 cd Full-Stack-Prototype-Backend
 ```
 
-Create a virtual environment:
+3. Create a virtual environment:
 
 ```
 python -m venv venv
 ```
 
-Activate the virtual environment:
+4. Activate the virtual environment:
 
 ```
 venv\Scripts\activate
@@ -76,13 +76,13 @@ venv\Scripts\activate
 
 (You should see (venv) appear at the start of your command prompt)
 
-Install dependencies:
+5. Install dependencies:
 
 ```
 pip install -r requirements.txt
 ```
 
-Start the server:
+6. Start the server:
 
 ```
 python app.py
