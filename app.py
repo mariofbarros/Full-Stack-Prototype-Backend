@@ -1,4 +1,3 @@
-# app.py
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 from database import db, init_database, Order, BASE_DIR
@@ -61,7 +60,7 @@ def create_order():
 
 @app.route('/orders/<int:id>', methods=['GET'])
 def get_order(id):
-    order = Order.query.get(id)
+    order = Order.session.get(id)
     
     if not order:
         return jsonify({'error': 'Order not found'}), 404
