@@ -5,6 +5,10 @@
 
 A RESTful API built with **Flask** and **SQLAlchemy** to manage coffee shop orders. It supports CRUD operations for orders, includes input validation, and provides interactive API documentation via **Swagger/OpenAPI**. This backend connects directly to the [Full Stack Prototype Frontend](https://github.com/mariofbarros/Full-Stack-Prototype-Frontend).
 
+
+https://github.com/user-attachments/assets/076682ae-a5cf-473d-a7c5-0015523c8e89
+
+
 ## Features
 
 - **CRUD Operations**: Create, Read, Update, and Delete orders.
